@@ -6,12 +6,13 @@ evaluated here against the *published* notes only (so nothing private can
 leak into a list) and swapped for a plain list. Safe to re-run after every
 vault sync: pages are rebuilt from the dataview source each time.
 
-Usage:  python3 scripts/static_dataview.py   (run from the repo root)
+Usage:  python3 scripts/static_dataview.py [content_dir]   (default: content)
 """
 import pathlib
 import re
+import sys
 
-CONTENT = pathlib.Path("content")
+CONTENT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "content")
 BLOCK = re.compile(r"```dataview\n.*?\n```", re.S)
 WIKILINK = re.compile(r"\[\[([^\]|#]+)")
 
