@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"card-313a68f4-a2d9-428d-ad8b-318d8bcb5c45","type":"file","file":"2 Areas/PM/Directional T-Shirt Sizing.md","x":1794,"y":800,"width":520,"height":1246},
+		{"id":"card-39fa3af1-7a56-4740-a498-b9aebb3a1cf6","type":"file","file":"2 Areas/PM/Bottom-Up Using Comparables.md","x":720,"y":-126,"width":520,"height":1208},
+		{"id":"card-e5e8f0ce-40c9-4097-b094-cc41bff16255","type":"file","file":"2 Areas/PM/Top-Down.md","x":2760,"y":-165,"width":520,"height":1286},
+		{"id":"media-981ee07a-8ea4-4b52-bf5a-db1368c33e16","type":"text","text":"🎬 **TopDown.webp** (media)","x":1794,"y":-480,"width":520,"height":294},
+		{"id":"mc-b2c8a98c7130","type":"text","text":"# 🖼️ TopDown.webp\n\n⏳ **圖檔遺失**\n\n原始檔名：`TopDown.webp`\n\n這個圖在 Heptabase 匯出時沒被帶下來（Heptabase 漏匯出 .webp/.svg 檔）。\n\n**請手動補上：**\n1. 打開 Heptabase web 找到原本的 media card\n2. 右鍵 / 點開 → 下載原圖\n3. 把檔案放到 `Attachments/TopDown.webp`\n4. 之後我會自動把這個 placeholder 換回真實圖片\n\n或者：如果你不再需要這張圖，從 canvas 上直接刪掉這個節點即可。","x":1794.51,"y":-126.08,"width":520,"height":294.4}
+	],
+	"edges":[
+		{"id":"edge-a0e3234b-fc9f-4208-9009-caa6e8419b64","fromNode":"media-981ee07a-8ea4-4b52-bf5a-db1368c33e16","fromSide":"bottom","toNode":"card-313a68f4-a2d9-428d-ad8b-318d8bcb5c45","toSide":"top"},
+		{"id":"edge-b230d403-66db-4bcd-808b-e91833bf6e7b","fromNode":"media-981ee07a-8ea4-4b52-bf5a-db1368c33e16","fromSide":"bottom","toNode":"card-e5e8f0ce-40c9-4097-b094-cc41bff16255","toSide":"left"},
+		{"id":"edge-db1a72e6-6b82-40f8-a9b6-034718efe0b7","fromNode":"card-39fa3af1-7a56-4740-a498-b9aebb3a1cf6","fromSide":"right","toNode":"media-981ee07a-8ea4-4b52-bf5a-db1368c33e16","toSide":"bottom"}
+	]
+}
