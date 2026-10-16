@@ -1,17 +1,40 @@
-# Quartz v5
+# Camilla's Notes
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+My public digital garden — PM, AI workflows, course and book notes — built with [Quartz v5](https://quartz.jzhao.xyz/) and deployed on Vercel.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+## How it fits together
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+| Where | What |
+|---|---|
+| iCloud `Obsidian-Vault` | **The source of truth.** I only ever write notes here. |
+| this repo (`~/Claude/camilla-notes`, local, *not* in iCloud) | The build factory: a filtered copy of the public notes + Quartz. |
+| Vercel | Rebuilds and redeploys automatically on every push to `main`. |
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+## Publishing updates
 
-## Sponsors
+```bash
+./scripts/sync.sh            # rebuild content/ from the vault, show diff, ask before pushing
+./scripts/sync.sh --dry-run  # rebuild and show diff only
+```
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+`scripts/sync_from_vault.py` follows the publishing policy:
+
+- **Allow-list only** — published folders: `2 Areas/{PM, AI 工作流、模版, 課程, 書, 認證、證照}` and `_Topics`. Anything else in the vault (new folders included) stays private.
+- Attachments are copied only when a published note embeds them; **PDFs are never published**.
+- `overrides/` holds site-only pages (the landing page `index.md`, folder indexes) and is layered on top.
+- Dataview blocks are converted to static lists (`scripts/static_dataview.py`).
+- A privacy guard aborts the sync if private folders, PDFs, or private contact info show up.
+
+## Local preview
+
+```bash
+npx quartz build --serve   # http://localhost:8080
+```
+
+## Updating Quartz itself
+
+The official repo is kept as the `upstream` remote:
+
+```bash
+git fetch upstream && git merge upstream/v5 --allow-unrelated-histories
+```
